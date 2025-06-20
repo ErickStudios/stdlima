@@ -1,0 +1,59 @@
+/**
+What happen if i import all modules?
+**/
+
+import
+    dmemo
+;
+
+import
+    doc
+;
+
+import
+    exception
+;
+
+import
+    files
+;
+
+import
+    iostream
+;
+
+import
+    loops
+;
+
+import
+    map
+;
+
+import
+    math
+;
+
+import
+    reylab
+;
+
+import
+    stdbase
+;
+
+import
+    stdlib
+;
+
+import
+    string
+;
+
+import
+    UIProt
+;
+
+import
+    xml
+;

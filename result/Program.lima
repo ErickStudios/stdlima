@@ -1,0 +1,510 @@
+/**
+Main.lima
+* Summary
+    represents the base of your aplication
+**/
+# string.lima
+#
+# abstract:
+#   string clases
+///! ![enable Lima++]
+///! ![Lima++ no_main]
+///! ![Lima++ no_std]
+///! ![Lima++ std_lib_definition]
+///! ![Lima++ jump affter execution]
+# stdbase.lima
+# the base std module
+///! ![enable Lima++]
+///! !pragma once
+/**
+check if callback
+**/
+if
+(
+    std->module
+    ==
+    "std->module"
+)
+{
+    proto module "std"
+}
+/**
+string_types
+defines the types of the strings
+**/
+@structure
+{
+	prototype
+    ""
+    var
+        EmptyString
+}
+string_types
+;
+ustruct
+    StringTypes
+    string_types
+/**
+* string
+* 
+* represents a string
+* a string is a text for represents
+*
+**/
+collection<class string>
+{
+    # __value
+    # 
+    # Summary:
+    # 	the value that is called when you try to call the class
+    # 
+    collection<children var __value>
+    # lenght
+    # 
+    # Summary:
+    # 	the lenght of the text
+    # 
+    collection<children var <class_name>->lenght>
+    /**
+    * Join
+    * 
+    * Joins a text
+    *
+    **/
+    collection<function Join> 
+    (
+        /**
+        text2
+        the text to join with the other
+        **/
+        collection<param text2>
+        )
+            #
+            # setuping variables
+            #
+            var
+                text
+                =
+                collection<get __value>
+            var
+                text2
+                =
+                collection<param text2>
+            #
+            # routine
+            #
+            var
+                _returned
+                =
+                text
+            var
+                _returned
+                +=
+                text2
+            collection<return _returned>
+            collection<set __value> _returned
+    collection<end function>
+}
+# iostream.lima
+///! ![enable Lima++]
+///! !pragma once
+# basic_iostream
+# 
+# Summary:
+# 	represents the console functions to interact with the input/outpud system of the console
+#   line, includes print, printw, read, readkey, readline, readlinenv
+#
+#   example1:
+#       collection<new class?string phrase>
+#       =
+#       "hello world"
+#
+#       NULL collection<instance;class?basic_iostream;conout;print>(->)<phrase>
+#
+#   example2
+#       collection<new class?string ky>
+#       =
+#       collection<instance;class?basic_iostream;conin;readline>(->)<>
+#   
+#   in the examples you view a collection<instance;class?basic_iostream>, this represents a function to acces to
+#   the Lima++ functions
+#       collection = Lima functions
+#           instance = extract a function for the instance class?basic_iostream that is instanced as conin/conout
+#           conin/conout = the variables of the instances that are instanced as the class basic_iostream
+#           readline/print = the functions to extract
+#       (->) = a method for acces to propietys or functions of varius objects
+#           <> = represents the opening and the closing of the params to send to the function
+#               phrase (in the <>) = represents the variable (or the param) to send
+#  
+#
+# Params:
+# 	nothing for init
+#
+# Subroutines:
+#   print: prints a text
+#   printw: prints a text without a line feed
+#   read: read the line (the built-in interpreter function)
+#   readkey: read a key (with a built-in interpreter function)
+#   readline: read but this version is not built-in, perfect for study the behavior of the read function
+#   readlinenv: readline but without a preview of the actions make of the user (the keys presed)
+#
+# warnings:
+#   in collection<instance;class?basic_iostream;conin;readline>(->)<> use the spaces and not the ; in the syntax are
+#   dangreus for the use , because in this form the lima interpreter dont know what action is
+#   and for compatibility with the interpreter commands that managen two or more argumments and for dont break it
+#   dont use spaces , use ; and in the strings use "%sp" for the spaces in the strings
+# 
+collection<class basic_iostream>
+{
+    # __value
+    # 
+    # Summary:
+    # 	the value that is called when you try to call the class
+    # 
+    collection<children var __value>
+    # print
+    # 
+    # Summary:
+    # 	prints a text
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function print>
+    (
+        collection<param text>
+    )
+        echo collection<param text>
+        collection<return "">
+    collection<end function>
+    # printw
+    # 
+    # Summary:
+    # 	prints a text (without a line jump)
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function prinprintwt>
+    (
+        collection<param text>
+    )
+        writel collection<param text>
+        collection<return "">
+    collection<end function>
+    # read
+    # 
+    # Summary:
+    # 	read a line
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function read>
+    (
+    )
+        collection<return ReadLine>
+    collection<end function>
+    # readkey
+    # 
+    # Summary:
+    # 	read a key
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function readkey>
+    (
+    )
+        collection<return ReadKeyWait>
+    collection<end function>
+    # readline
+    # 
+    # Summary:
+    # 	a manual form to read the line (with a preview view of the line)
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function readline>
+    (
+    )
+        #
+        # configure vars
+        #
+        # line
+        # 
+        # Summary:
+        # 	the line writed
+        #
+        var
+            line
+            =
+            ""
+        # key
+        # 
+        # Summary:
+        # 	the pressed key
+        #
+        var
+            key
+            =
+            ""
+        jump
+        .loop
+        # loop
+        # 
+        # Summary:
+        # 	loop for the line reading loop
+        #   this gets a key pressed by the user and 
+        #   adds or backspace or returns the line
+        # 
+        # Params:
+        # 	@key: the variable of the leu
+        #         necesary for the logic
+        #   @line: the line for read and shift, cat or return
+        # 
+        section
+        .loop
+            # 
+            # gets the key
+            #
+            var
+                key
+                =
+                ReadKeyWait
+            #
+            # key logic
+            #
+            # set the conditional variable
+            var
+                .cnd
+                =
+                (key=="enter")
+            # if the enter key is pressed ends the line
+            jt
+            .end
+            # if not continue with the key pulsation
+            jf
+            .pulse
+        # in some cases the pulse fails and for this cases make a recovery point
+        jump
+        .loop
+        # pulse
+        # 
+        # Summary:
+        # 	the pulsation logic for the keys
+        # 
+        # Params:
+        # 	@key: the key to add/backspace it
+        #   @line: the line
+        # 
+        section
+        .pulse
+            #
+            # check if the key is backspace
+            #
+            var
+                .cnd
+                =
+                (key=="backspace")
+            # if true , shift the text
+            jt
+            .backspace
+            # if false add the character to the line
+            var
+                line
+                StrCat=
+                key
+            # a preview
+            writel key
+        # next key
+        jump
+        .loop
+        # backspace
+        # 
+        # Summary:
+        # 	the backspace logic
+        # 
+        # Params:
+        # 	@line: the line
+        # 
+        section
+        .backspace
+            var
+                line
+                -=
+                1
+            # backspace the key
+            shiftcur -1 0
+            writel " "
+            shiftcur -1 0
+        # next key
+        jump
+        .loop
+        # end
+        # 
+        # Summary:
+        # 	the end of the function
+        # 
+        # Params:
+        # 	...
+        # 
+        section
+        .end
+        echo ""
+        collection<return line>
+    collection<end function>
+    # readlinenv
+    # 
+    # Summary:
+    # 	a manual form to read the line (without a preview view of the line)
+    # 
+    # Params:
+    # 	...
+    # 
+    collection<function readlinenv>
+    (
+    )
+        #
+        # configure vars
+        #
+        # line
+        # 
+        # Summary:
+        # 	the line writed
+        #
+        var
+            line
+            =
+            ""
+        # key
+        # 
+        # Summary:
+        # 	the pressed key
+        #
+        var
+            key
+            =
+            ""
+        jump
+        .loop
+        # loop
+        # 
+        # Summary:
+        # 	loop for the line reading loop
+        #   this gets a key pressed by the user and 
+        #   adds or backspace or returns the line
+        # 
+        # Params:
+        # 	@key: the variable of the leu
+        #         necesary for the logic
+        #   @line: the line for read and shift, cat or return
+        # 
+        section
+        .loop
+            # 
+            # gets the key
+            #
+            var
+                key
+                =
+                ReadKeyWait
+            #
+            # key logic
+            #
+            # set the conditional variable
+            var
+                .cnd
+                =
+                (key=="enter")
+            # if the enter key is pressed ends the line
+            jt
+            .end
+            # if not continue with the key pulsation
+            jf
+            .pulse
+        # in some cases the pulse fails and for this cases make a recovery point
+        jump
+        .loop
+        # pulse
+        # 
+        # Summary:
+        # 	the pulsation logic for the keys
+        # 
+        # Params:
+        # 	@key: the key to add/backspace it
+        #   @line: the line
+        # 
+        section
+        .pulse
+            #
+            # check if the key is backspace
+            #
+            var
+                .cnd
+                =
+                (key=="backspace")
+            # if true , shift the text
+            jt
+            .backspace
+            # if false add the character to the line
+            var
+                line
+                StrCat=
+                key
+        # next key
+        jump
+        .loop
+        # backspace
+        # 
+        # Summary:
+        # 	the backspace logic
+        # 
+        # Params:
+        # 	@line: the line
+        # 
+        section
+        .backspace
+            var
+                line
+                -=
+                1
+        # next key
+        jump
+        .loop
+        # end
+        # 
+        # Summary:
+        # 	the end of the function
+        # 
+        # Params:
+        # 	...
+        # 
+        section
+        .end
+        echo ""
+        collection<return line>
+    collection<end function>
+}
+# conin
+# 
+# Summary:
+# 	the console input built-in libary protocol
+# 
+collection<new class?basic_iostream conin>
+=
+<instance class<"in">>
+# conout
+# 
+# Summary:
+# 	the console outpud built-in libary protocol
+# 
+collection<new class?basic_iostream conout>
+=
+<instance class<"out">>
+///! ![enable Lima++]
+collection<new class?string MyString>
+=
+"Hello World"
+NULL collection<instance;class?basic_iostream;conout;print>(->)<MyString>

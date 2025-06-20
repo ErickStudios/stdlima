@@ -1,0 +1,75 @@
+/**
+dmemo.lima
+
+Dynamic MEMory Organization
+**/
+
+/**
+Pool_t
+
+represents a pool
+**/
+@structure
+{
+	prototype
+    int
+    var
+        Start
+
+    prototype
+    int
+    var
+        End
+}
+Pool_t
+;
+
+/**
+Malloc
+
+allocates a memory pool that starts in @param:start and have a lenght of @param:size
+and the result is saved in the pointer of the @param:variable
+
+_returned = start of the pool
+@ax = the end of the pool
+**/
+section
+Malloc
+
+    /**
+    configure vars
+    **/
+
+    mov
+        _returned
+        start
+
+    var
+        end
+        =
+        start
+
+    var
+        end
+        +=
+        size
+
+    mov
+        @ax
+        end
+
+    ustruct
+        *variable
+        Pool_t
+    
+    var
+        *variable(+)"->Start"
+        =
+        @ScratchVar(_returned)
+
+    var
+        *variable(+)"->End"
+        =
+        @ScratchVar(@ax)
+
+popback

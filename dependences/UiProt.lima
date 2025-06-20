@@ -1,0 +1,866 @@
+/**
+UiProt.lima
+
+ui protocol tools, but for console/CLI
+**/
+
+///! ![enable Lima++]
+
+var
+    GlobalTab
+    =
+    0
+
+/**
+UIFrameColor
+
+represents the 16 posibles colors that a color can set
+**/
+@structure
+{
+    /**
+    Black
+
+    represents the color Black
+    **/
+	prototype
+    0
+    var
+        Black
+
+    /**
+    DarkBlue
+
+    represents the color Dark Blue
+    **/
+    prototype
+    1
+    var
+        DarkBlue
+
+    /**
+    DarkGreen
+
+    represents the color Dark Green
+    **/
+    prototype
+    2
+    var
+        DarkGreen
+
+    /**
+    DarkCyan
+
+    represents the color Dark Cyan
+    **/
+    prototype
+    3
+    var
+        DarkCyan
+
+    /**
+    DarkRed
+
+    represents the color Dark Red
+    **/
+    prototype
+    4
+    var
+        DarkRed
+
+    /**
+    DarkMagenta
+
+    represents the color Dark Magenta
+    **/
+    prototype
+    5
+    var
+        DarkMagenta
+
+    /**
+    DarkYellow
+
+    represents the color Dark Yellow
+    **/
+    prototype
+    6
+    var
+        DarkYellow
+
+    /**
+    Gray
+
+    represents the color Gray
+    **/
+    prototype
+    7
+    var
+        Gray
+
+    /**
+    DarkGray
+
+    represents the color Dark Gray
+    **/
+    prototype
+    8
+    var
+        DarkGray
+
+    /**
+    Blue
+
+    represents the color Blue
+    **/
+    prototype
+    9
+    var
+        Blue
+
+    /**
+    Green
+
+    represents the color Green
+    **/
+    prototype
+    10
+    var
+        Green
+
+    /**
+    Cyan
+
+    represents the color Cyan
+    **/
+    prototype
+    11
+    var
+        Cyan
+
+    /**
+    Red
+
+    represents the color Red
+    **/
+    prototype
+    12
+    var
+        Red
+
+    /**
+    Magenta
+
+    represents the color Magenta
+    **/
+    prototype
+    13
+    var
+        Magenta
+    
+    /**
+    Yellow
+
+    represents the color Yellow
+    **/
+    prototype
+    14
+    var
+        Yellow
+    
+    /**
+    White
+
+    represents the color White
+    **/
+    prototype
+    15
+    var
+        White
+}
+UIFrameColor
+;
+
+ustruct
+    GUIColors
+    UIFrameColor
+
+/**
+IHBCanvas
+
+represents the interface that contains the manage thins
+**/
+collection<class IHBCanvas>
+{
+    /**
+    Tab
+
+    the current tab managen
+    **/
+    declare var<Tab>: any
+}
+
+/**
+IElementGUI
+
+represents the interface of the ui elements
+**/
+collection<class IElementGUI>
+{
+    /**
+    XPos
+
+    represents the x position of the object
+    **/
+    declare var<XPos>: number
+
+    /**
+    YPos
+
+    represents the y position of the object
+    **/
+    declare var<YPos>: number
+
+    /**
+    Hidden
+
+    if the object is not visible
+    **/
+    declare var<Hidden>: boolean
+}
+
+/**
+UIFrame
+
+represents a frame
+**/
+collection<class UIFrame>
+{
+    /**
+    declare it as a class expansible of IElementGUI (its a type of herence)
+    **/
+    expand class IElementGUI
+
+    /**
+    SizeX
+
+    the X size of the frame
+    **/
+    declare var<FSizeX>: number
+
+    /**
+    SizeY
+
+    the Y size of the frame
+    **/
+    declare var<FSizeY>: number
+
+    /**
+    Background
+
+    the background color of the frame
+    **/
+    declare var<Background>: number
+}
+
+/**
+UIRectangle
+
+a ui rectangle (is a UIFrame but, drawable)
+**/
+collection<class UIRectangle>
+{
+    expand class UIFrame
+
+    /**
+    Draw
+
+    draw the Rectangle
+    **/
+    collection<function Draw>
+    (
+    )
+
+        /**
+        configure variables
+        **/
+        var
+            XPosition
+            =
+            (this)->XPos
+
+        var
+            YPosition
+            =
+            (this)->YPos
+        
+        var
+            IsHidden
+            =
+            (this)->Hidden
+
+        var
+            SizeX
+            =
+            (this)->FSizeX
+
+        var
+            SizeY
+            =
+            (this)->FSizeY
+
+        var
+            Background
+            =
+            (this)->Background
+
+        /**
+        configure the drawable text
+        **/
+
+        var
+            Drawable
+            =
+            " "
+
+        var
+            Drawable
+            Repeat=
+            SizeX
+        
+        var
+            Drawable
+            StrCat=
+            %internal.linefeed
+        
+        var
+            Drawable
+            Repeat=
+            SizeY
+        
+        gotoxy XPosition YPosition
+        color 0 Background
+
+        echo Drawable
+
+    collection<end function>
+}
+
+/**
+UIText
+
+a ui text element
+**/
+collection<class UITextLabel>
+{
+    expand class UIFrame
+
+    /**
+    TextLabel
+
+    the text label text
+    **/
+    declare var<TextLabel>: text
+
+    /**
+    Foreground
+
+    the foreground color of the 
+    **/
+    declare var<Foreground>: number
+}
+
+/**
+UIText
+
+a ui text element
+**/
+collection<class UIText>
+{
+    expand class UITextLabel
+
+    /**
+    Draw
+
+    draw the text
+    **/
+    collection<function Draw>
+    (
+    )
+
+        /**
+        configure variables
+        **/
+        var
+            XPosition
+            =
+            (this)->XPos
+
+        var
+            YPosition
+            =
+            (this)->YPos
+        
+        var
+            IsHidden
+            =
+            (this)->Hidden
+
+        var
+            SizeX
+            =
+            (this)->FSizeX
+
+        var
+            SizeY
+            =
+            (this)->FSizeY
+
+        var
+            Background
+            =
+            (this)->Background
+
+        var
+            Foreground
+            =
+            (this)->Foreground
+
+        var
+            Text
+            =
+            (this)->TextLabel
+
+        /**
+        configure the drawable text
+        **/
+
+        var
+            Drawable
+            =
+            " "
+
+        var
+            Drawable
+            Repeat=
+            SizeX
+        
+        var
+            Drawable
+            StrCat=
+            %internal.linefeed
+        
+        var
+            Drawable
+            Repeat=
+            SizeY
+        
+        color 0 Background
+
+        gotoxy XPosition YPosition
+        echo Drawable
+
+        color Foreground Background
+        echo Text
+
+    collection<end function>
+}
+
+/**
+IElementButtonUI
+
+represents a UI button interface
+**/
+collection<class IElementButtonUI>
+{
+    /**
+    Code
+
+    the code that is executed when you click the button
+    **/
+    declare var<Code>: any
+
+    /**
+    tab_id
+
+    the id of the button in the tabulator
+    **/
+    declare var<tab_id>: number
+}
+
+/**
+UITextButton
+
+represents a text button
+**/
+collection<class UITextButton>
+{
+    expand class UITextLabel
+    expand class IElementButtonUI
+
+    /**
+    HoverBackground
+
+    the background when the button is hoverd
+    **/
+    declare var<HoverBackground>: number
+
+    /**
+    HoverForeground
+
+    the foreground when the button is hoverd
+    **/
+    declare var<HoverForeground>: number
+
+    /**
+    Draw
+
+    draw the text
+    **/
+    collection<function Draw>
+    (
+        /**
+        Tab
+
+        the current tab to check if select the button
+        **/
+        collection<param Tab>
+    )
+
+        /**
+        configure variables
+        **/
+        var
+            XPosition
+            =
+            (this)->XPos
+
+        var
+            YPosition
+            =
+            (this)->YPos
+        
+        var
+            IsHidden
+            =
+            (this)->Hidden
+
+        var
+            SizeX
+            =
+            (this)->FSizeX
+
+        var
+            SizeY
+            =
+            (this)->FSizeY
+
+        var
+            Background
+            =
+            (this)->Background
+
+        var
+            Foreground
+            =
+            (this)->Foreground
+
+
+        var
+            HBackground
+            =
+            (this)->HoverBackground
+
+        var
+            HForeground
+            =
+            (this)->HoverForeground
+
+        var
+            Text
+            =
+            (this)->TextLabel
+
+        var
+            TabID
+            =
+            (this)->tab_id
+
+        /**
+        configure the drawable text
+        **/
+
+        var
+            Drawable
+            =
+            " "
+
+        var
+            Drawable
+            Repeat=
+            SizeX
+        
+        var
+            Drawable
+            StrCat=
+            %internal.linefeed
+        
+        var
+            Drawable
+            Repeat=
+            SizeY
+        
+        color 0 Background
+        if
+        (
+            collection<param Tab>
+            ==
+            TabID
+        )
+        {
+            color 0 HBackground
+        }
+
+        gotoxy XPosition YPosition
+        echo Drawable
+
+        color Foreground Background
+
+        if
+        (
+            collection<param Tab>
+            ==
+            TabID
+        )
+        {
+            color HForeground HBackground
+        }
+        echo Text
+
+    collection<end function>
+
+    /**
+    GoTo
+    **/
+    collection<function GoTo>
+    (
+    )
+
+        lex (this)->Code
+
+    collection<end function>
+}
+
+/**
+UIRectangleButton
+
+represents a rectangle button
+**/
+collection<class UITextButton>
+{
+    expand class UIFrame
+    expand class IElementButtonUI
+
+    /**
+    HoverBackground
+
+    the background when the button is hoverd
+    **/
+    declare var<HoverBackground>: number
+
+    /**
+    HoverForeground
+
+    the foreground when the button is hoverd
+    **/
+    declare var<HoverForeground>: number
+
+
+    /**
+    Draw
+
+    draw the text
+    **/
+    collection<function Draw>
+    (
+        /**
+        Tab
+
+        the current tab to check if select the button
+        **/
+        collection<param Tab>
+    )
+
+        /**
+        configure variables
+        **/
+        var
+            XPosition
+            =
+            (this)->XPos
+
+        var
+            YPosition
+            =
+            (this)->YPos
+        
+        var
+            IsHidden
+            =
+            (this)->Hidden
+
+        var
+            SizeX
+            =
+            (this)->FSizeX
+
+        var
+            SizeY
+            =
+            (this)->FSizeY
+
+        var
+            Background
+            =
+            (this)->Background
+
+        var
+            Foreground
+            =
+            (this)->Foreground
+
+
+        var
+            HBackground
+            =
+            (this)->HoverBackground
+
+        var
+            HForeground
+            =
+            (this)->HoverForeground
+
+        var
+            Text
+            =
+            (this)->TextLabel
+
+        var
+            TabID
+            =
+            (this)->tab_id
+
+        /**
+        configure the drawable text
+        **/
+
+        var
+            Drawable
+            =
+            " "
+
+        var
+            Drawable
+            Repeat=
+            SizeX
+        
+        var
+            Drawable
+            StrCat=
+            %internal.linefeed
+        
+        var
+            Drawable
+            Repeat=
+            SizeY
+        
+        color 0 Background
+        if
+        (
+            collection<param Tab>
+            ==
+            TabID
+        )
+        {
+            color 0 HBackground
+        }
+
+        gotoxy XPosition YPosition
+        echo Drawable
+
+        color Foreground Background
+
+    collection<end function>
+
+    /**
+    GoTo
+    **/
+    collection<function GoTo>
+    (
+    )
+
+        lex (this)->Code
+
+    collection<end function>
+}
+
+/**
+UIGui
+
+represents a GUI interface
+**/
+collection<class UIGui>
+{
+    expand class IHBCanvas
+    
+    /**
+    Items
+
+    the items in the gui
+    **/
+    declare var<Items>: <class IElementGUI>[]
+
+    /**
+    Launch
+
+    launchs the GUI
+    **/
+    collection<function Launch>
+    (
+    )
+
+        
+
+    collection<end function>
+
+    /**
+    AppendNewElement
+
+    appends a new GUI item
+    **/
+    collection<function AppendNewElement>
+    (
+        /**
+        ItemPointer
+
+        the variable of the item where the element is instanced
+        **/
+        collection<param ItemPointer>
+    )
+
+    var
+        (this)->Items
+        Line+=
+        collection<param ItemPointer>
+
+    collection<end function>
+}
+
+/**
+AppGUI
+
+represents the global interface for all the application
+**/
+collection<new class?UIGui AppGUI>
+=
+NULL

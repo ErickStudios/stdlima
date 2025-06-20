@@ -1,0 +1,63 @@
+/**
+UIApp1.lima
+
+this is a UI app example
+**/
+
+/**
+import the ui protocol
+**/
+import
+    UIProt
+;
+
+/**
+go to the action
+**/
+collection<new class?UIText Text1>
+=
+NULL
+
+var
+    Text1->XPos
+    =
+    0
+
+var
+    Text1->YPos
+    =
+    0
+
+var
+    Text1->Hidden
+    =
+    false
+
+var
+    Text1->FSizeX
+    =
+    0
+
+
+var
+    Text1->FSizeY
+    =
+    0
+
+
+var
+    Text1->Background
+    =
+    GUIColors->DarkBlue
+
+var
+    Text1->Foreground
+    =
+    GUIColors->White
+
+var
+    Text1->TextLabel
+    =
+    "boton 1"
+
+NULL collection<instance;class?UIText;Text1;Draw>(->)<>
