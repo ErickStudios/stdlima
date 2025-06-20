@@ -1,0 +1,23 @@
+# doc.lima
+#
+# abstract:
+#   provides a docummentation extensive tools
+
+///! ![enable Lima++]
+///! !pragma once
+
+%define _In_ NULL
+%define _Out_ NULL
+%define _Optional_ NULL
+%define _Obligatory_ NULL
+%define _Unused_ NULL
+%define _Obsolete_ NULL
+%define _ForCompatibility_ NULL
+
+%define IN NULL
+%define OUT NULL
+%define OPTIONAL NULL
+%define OBLIGATORY NULL
+%define UNUSED NULL
+%define OBSOLETE NULL
+%define FORCOMPATIBILITY NULL

@@ -1,0 +1,342 @@
+/**
+xml.lima
+
+functions to managen xmls
+**/
+
+///! ![enable Lima++]
+
+/**
+XmlFunctions
+
+represents the xml functions
+**/
+collection<class XmlFunctions>
+{
+    /**
+    parse_tag
+
+    parse a tag with value and that things
+    **/
+    collection<function parse_tag>
+    (
+        /**
+        tag_e
+
+        the tag text
+        **/
+        collection<param tag_e>
+
+        /**
+        variable
+
+        the pointer to the variable to redirect the outpud
+        **/
+        collection<param variable>
+    )
+
+        /**
+        configure vars
+        **/
+
+        var
+            split
+            =
+            collection<param tag_e>
+        
+        var
+            split
+            =
+            split(->)split "<"
+        
+        var
+            split
+            =
+            split(->)split ">"
+
+        /**
+        parse
+        **/
+
+        var
+            collection<param variable>->@TagName
+            =
+            split(->)[1]
+
+        var
+            collection<param variable>
+            =
+            split(->)[2]
+
+    collection<end function>
+}
+
+collection<new class?XmlFunctions Xml>
+=
+NULL
+
+/**
+XmlDocumment
+
+represents a xml documment
+**/
+collection<class XmlDocumment>
+{
+    /**
+    doc
+
+    the documment
+    **/
+    declare var<doc>: text
+
+    /**
+    init
+
+    **/
+    collection<function init>
+    (
+        /**
+        documment
+
+        the documment to managen (in text)
+        **/
+        collection<param documment>
+    )
+        /**
+        configure vars
+        **/
+        var
+            (this)->doc
+            =
+            collection<param documment>
+
+        /**
+        make a ""basics Lima++ operations""
+        **/
+        var
+            container
+            =
+            (this)->doc
+        
+        var
+            container
+            ++^^
+            "<documment>"
+
+        var
+            .cnd
+            =
+            container
+            # -> true/false
+
+        jf
+            .invalid
+
+        var
+            container
+            =
+            (this)->doc
+        
+        var
+            container
+            ++^^
+            "</documment>"
+
+        var
+            .cnd
+            =
+            container
+            # -> true/false
+
+        jf
+            .invalid
+
+        __endprog__
+
+        /**
+        .invalid
+
+        if the documment is invalid
+        **/
+        section
+        .invalid
+
+        __endprog__
+
+    collection<end function>
+
+    /**
+    get-tag
+
+    get the tag of the current xml
+
+    NOTE: posible cant valide the attributes
+    **/
+    collection<function get-tag>
+    (
+        /**
+        tag
+
+        the name of the tag
+        **/
+        collection<param tag>
+    )
+
+        /**
+        validate the documment
+        **/
+
+        var
+            container
+            =
+            (this)->doc
+        
+        var
+            container
+            ++^^
+            "<documment>"
+
+        var
+            .cnd
+            =
+            container
+            # -> true/false
+
+        jf
+            .invalid
+
+        var
+            container
+            =
+            (this)->doc
+        
+        var
+            container
+            ++^^
+            "</documment>"
+
+        var
+            .cnd
+            =
+            container
+            # -> true/false
+
+        jf
+            .invalid
+        
+        /**
+        configure vars
+        **/
+
+        var
+            index
+            =
+            0
+
+        var
+            blocks
+
+        var
+            line
+            =
+            prototype
+
+        var
+            lines
+            =
+            (this)->doc
+
+        jump
+        .xloop
+
+        /**
+        .loop
+
+        recorres all xml array
+        **/
+        section
+        .xloop
+
+            /**
+            check the conditions
+            **/
+            mov
+                @bx
+                lines(->)items_count
+
+            var
+                .cnd
+                =
+                (index==@bx)
+            
+            jt
+                .invalid
+
+            /**
+            configure envioriment
+            **/
+            var
+                line
+                =
+                lines(->)[index]
+
+            /**
+            trim it
+            **/
+
+            var
+                line
+                =
+                line(->)trim
+
+            /**
+            parse the tag
+            **/
+
+            NULL collection<instance;class?XmlFunctions;Xml;parse_tag>(->)<line,tag>
+
+            /**
+            check it the tag
+            **/
+
+            var
+                .cnd
+                =
+                (tag->@TagName==collection<param tag>)
+            
+            jt
+                .founded!!!
+
+            var
+                index
+                +=
+                1
+
+        jump
+        .xloop
+
+        section
+        .next_item
+
+            var
+                index
+                +=
+                1
+
+        jump
+        .xloop
+
+        section
+        .founded!!!
+
+            collection<return tag>
+
+        section
+        .invalid
+
+            collection<return NULL>
+
+        __endprog__
+
+    collection<end function>
+}

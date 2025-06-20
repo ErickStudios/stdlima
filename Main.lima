@@ -1,0 +1,21 @@
+/**
+Main.lima
+
+* Summary
+    represents the base of your aplication
+**/
+
+import
+    string
+;
+
+import
+    iostream
+;
+
+///! ![enable Lima++]
+collection<new class?string MyString>
+=
+"Hello World"
+
+NULL collection<instance;class?basic_iostream;conout;print>(->)<MyString>

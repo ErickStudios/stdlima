@@ -1,0 +1,13 @@
+# stdlib.lima
+
+# library for using lima functions for begimmers
+
+# include only stdlib and is all
+
+import
+    std/stdio
+;
+
+import
+    std/stddef
+;

@@ -1,0 +1,101 @@
+/**
+net.lima
+
+network functions
+**/
+
+///! ![enable Lima++]
+
+/**
+basic_netstream
+
+represents the network manipulation
+**/
+collection<class basic_netstream>
+{
+    /**
+    request
+
+    request a link from the current protocol
+    **/
+    collection<function request>
+    (
+        /**
+        link
+
+        the link of the site
+        **/
+        collection<param link>
+    )
+
+        var
+            request
+            =
+            (this)(..)"://"(..)link
+        
+        mov
+            @eax
+            "/net get"
+
+        mov
+            @bx
+            request
+
+        %^"!p"
+
+    collection<end function>
+
+    /**
+    mount-server
+
+    mount a web page
+    **/
+    collection<function mount_server>
+    (
+        /**
+        port
+        
+        the port to mount
+        **/
+        collection<param port>
+
+        /**
+        content
+
+        the content of the page in html
+        **/
+        collection<param content>
+    )
+
+        mov
+            @eax
+            "/net mount"
+
+        mov
+            @bx
+            collection<param port>
+
+        mov
+            @ax
+            collection<param content>
+
+        %^"!p"
+
+    collection<end function>
+}
+
+collection<new class?basic_netstream http_protocol>
+=
+"http"
+
+collection<new class?basic_netstream https_protocol>
+=
+"https"
+
+collection<new class?basic_netstream websocket_protocol>
+=
+"ws"
+
+collection<new class?basic_netstream localhost>
+=
+"localhost"

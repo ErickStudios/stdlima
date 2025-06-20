@@ -1,0 +1,19 @@
+# stdbase.lima
+
+# the base std module
+
+///! ![enable Lima++]
+///! !pragma once
+
+/**
+check if callback
+**/
+if
+(
+    std->module
+    ==
+    "std->module"
+)
+{
+    proto module "std"
+}

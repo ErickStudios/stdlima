@@ -1,0 +1,88 @@
+# stddef.lima
+
+# provides completion items and tools for the general lima things
+
+# en @sinpped:var
+#  sets a variable
+# es @sinpped:var
+#  asigna un valor a una variable
+
+# en @sinpped:ReadLine
+#   syntax for read a user input
+# es @sinpped:ReadLine
+#   sintaxis para leer una entrada del usuario
+
+# en @sinpped:ReadKeyWait
+#   reads a user key
+# es @sinpped:ReadKeyWait
+#   lee una tecla presionada por el usuario
+
+# en @sinpped:=
+#   operator for assignation
+# es @sinpped:=
+#   operador para asignar
+
+# en @sinpped:+=
+#   operator for sum ,recorre text to right and join text
+# es @sinpped:+=
+#   operador para sumar, recorrer un texto a la derecha y unir texto
+
+# en @sinpped:-=
+#   operator for substraction and recorre text to left
+# es @sinpped:-=
+#   operador para restar y recorrer a la izquierda un texto
+
+# en @sinpped:StrCat=
+#   operator for join a text
+# es @sinpped:StrCat=
+#   operador para unir un texto
+
+# en @sinpped:*=
+#   multiplication operator
+# es @sinpped:*=
+#   multiplicacion
+
+# en @sinpped:/=
+#   divition operator
+# es @sinpped:/=
+#   division
+
+# en @sinpped:%=
+#   mod operator
+# es @sinpped:%=
+#   modulo
+
+# en @sinpped:&=
+#   and bit operator
+# es @sinpped:&=
+#   operador de bit and
+
+# en @sinpped:|=
+#   or operator
+# es @sinpped:|=
+#   operador de or
+
+# en @sinpped:xor=
+#   xor operator
+# es @sinpped:xor=
+#   un operador de desigualdad
+
+# en @sinpped:_returned
+#   global variable where the result of a interpreter operation or a thridy party message result has been seted
+# es @sinpped:_returned
+#   variable global donde el resultado se almacena
+
+# en @sinpped:@eax
+#   the global variable of the command to send
+# es @sinpped:@eax
+#   la variable global del comando a mandar
+
+# en @sinpped:@bx
+#   the global variable of the command parameter
+# es @sinpped:@bx
+#   la variable global del parametro del comando a mandar
+
+# en @sinpped:mov
+#   sets a global variable
+# es @sinpped:mov
+#   asigna el valor a una variable global
