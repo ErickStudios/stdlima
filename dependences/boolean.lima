@@ -1,0 +1,45 @@
+/**
+boolean.lima
+
+bools managen
+**/
+
+/**
+true
+
+represents the true value in base
+**/
+var
+    true
+    =
+    "true"
+
+/**
+false
+
+represents the false value in base
+**/
+var
+    false
+    =
+    "false"
+
+/**
+boolean<new<True>>
+
+creates a new instance of `boolean` seted as `true`
+**/
+var
+    boolean<new<True>>
+    =
+    true
+
+/**
+boolean<new<False>>
+
+creates a new instance of `boolean` seted as `false`
+**/
+var
+    boolean<new<False>>
+    =
+    false

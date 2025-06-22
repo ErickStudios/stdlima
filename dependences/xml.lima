@@ -67,7 +67,7 @@ collection<class XmlFunctions>
             collection<param variable>
             =
             split(->)[2]
-
+        
     collection<end function>
 }
 

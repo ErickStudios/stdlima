@@ -1,0 +1,55 @@
+/**
+number.lima
+
+the number tools
+**/
+
+/**
+number<new<Unsigned>>
+
+creates a new instance of `number` with the sub-type `unsigned`
+**/
+var
+    number<new<Unsigned>>
+    =
+    0
+
+/**
+number<new<Signed>>
+
+creates a new instance of `number` with the sub-type `signed`
+**/
+var
+    number<new<Signed>>
+    =
+    0
+
+/**
+number<new<Signed><Zero>>
+
+represents the number 0
+**/
+var
+    number<new<Signed><Zero>>
+    =
+    0
+
+/**
+number<new<Signed><One>>
+
+represents the number 1
+**/
+var
+    number<new<Signed><One>>
+    =
+    1
+
+/**
+number<new<Signed><NegativeOne>>
+
+represents the number -1
+**/
+var
+    number<new<Signed><One>>
+    =
+    -1

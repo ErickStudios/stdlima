@@ -6,14 +6,69 @@
 ///! !pragma once
 
 /**
-check if callback
+import the base types
 **/
-if
-(
-    std->module
-    ==
-    "std->module"
-)
-{
-    proto module "std"
-}
+
+import
+    number
+;
+
+import
+    boolean
+;
+
+import
+    text
+;
+
+import
+    domain
+;
+
+import
+    dmemo
+;
+
+/**
+declare the types
+**/
+
+/**
+any
+
+represents anything
+**/
+var
+    any
+    =
+    ""
+
+/**
+text
+
+represents a text
+**/
+var
+    text
+    =
+    ""
+
+/**
+number
+
+represents a number
+**/
+var
+    number
+    =
+    0
+
+/**
+boolean
+
+represents a boolean
+**/
+var
+    boolean
+    =
+    false

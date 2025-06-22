@@ -4,10 +4,6 @@
 #   string clases
 
 ///! ![enable Lima++]
-///! ![Lima++ no_main]
-///! ![Lima++ no_std]
-///! ![Lima++ std_lib_definition]
-///! ![Lima++ jump affter execution]
 
 import
     stdbase
@@ -36,7 +32,7 @@ ustruct
 * string
 * 
 * represents a string
-* a string is a text for represents
+* a string is a text
 *
 **/
 collection<class string>
@@ -54,7 +50,7 @@ collection<class string>
     # Summary:
     # 	the lenght of the text
     # 
-    collection<children var <class_name>->lenght>
+    declare var<lenght>: number
 
     /**
     * Join

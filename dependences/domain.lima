@@ -1,0 +1,56 @@
+/**
+domain.lima
+
+functions for the domain of the app
+**/
+
+///! ![enable Lima++]
+/**
+AppDomain
+
+represents the app domain
+**/
+collection<class AppDomain>
+{
+    /**
+    Path
+
+    represents the path of the app
+    **/
+    declare var<Path>: text
+
+    /**
+    Name
+
+    represents the name of the lima
+    **/
+    declare var<Name>: text
+
+    /**
+    check
+
+    checks the values
+    **/
+    collection<function check>
+    (
+
+    )
+
+        var
+            (this)->Name
+            =
+            @name
+
+        var
+            (this)->Path
+            =
+            @dircurrent
+
+    collection<end function>
+}
+
+collection<new class?AppDomain CurrentDomain>
+=
+NULL
+
+NULL collection<instance;class?AppDomain;CurrentDomain;check>(->)<>

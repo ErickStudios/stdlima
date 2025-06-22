@@ -1,0 +1,60 @@
+/**
+time.lima
+
+tools for the time
+**/
+
+import
+    stdbase
+;
+
+///! ![enable Lima++]
+/**
+Time
+
+represents the time base
+**/
+collection<class Time>
+{
+    /**
+    Year
+
+    the current year
+    **/
+    declare var<Year>: number
+
+    /**
+    Month
+
+    the current month
+    **/
+    declare var<Month>: number
+
+    /**
+    Day
+
+    the current day
+    **/
+    declare var<Day>: number
+
+    /**
+    Hour
+    
+    the current hour
+    **/
+    declare var<Hour>: number
+
+    /**
+    Minute
+
+    the current minute
+    **/
+    declare var<Minute>: number
+
+    /**
+    Second
+
+    the current second
+    **/
+    declare var<Second>: number
+}

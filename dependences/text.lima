@@ -1,0 +1,15 @@
+/**
+text.lima
+
+the functions for the text type
+**/
+
+/**
+text<new<Empty>>
+
+creates a instance of `text` as a empty `text`
+**/
+var
+    text<new<Empty>>
+    =
+    ""
